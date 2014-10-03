@@ -16,16 +16,16 @@ class WordSource
   end
 
   def top_5_words
-    top_n_strings(current_words, 5)
+    top_n_strings(words_seen, 5)
   end
 
   def top_5_consonants
-    strings = current_words.join("").split("").select {|letter| CONSONANTS.include?(letter)}
+    strings = words_seen.join("").split("").select {|letter| CONSONANTS.include?(letter)}
     top_n_strings(strings, 5)
   end
 
   def count
-    current_words.count
+    words_seen.count
   end
 
   def run
@@ -41,7 +41,7 @@ class WordSource
 
   private
 
-  def current_words
+  def words_seen
     words = (@current_word_position == 0) ? [] : @words.slice(0, @current_word_position)
   end
 

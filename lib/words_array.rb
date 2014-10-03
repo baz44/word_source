@@ -1,3 +1,0 @@
-module WordsArray
-  
-end

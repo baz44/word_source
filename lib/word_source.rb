@@ -42,7 +42,7 @@ class WordSource
   private
 
   def words_seen
-    words = (@current_word_position == 0) ? [] : @words.slice(0, @current_word_position)
+    @current_word_position == 0 ? [] : @words.slice(0, @current_word_position)
   end
 
   def call_callback(word)

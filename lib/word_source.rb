@@ -20,7 +20,7 @@ class WordSource
   end
 
   def top_5_consonants
-    strings = words_seen.join("").split("").select {|letter| CONSONANTS.include?(letter)}
+    strings = words_seen.join("").split("").select {|letter| CONSONANTS.include?(letter.downcase)}.map(&:downcase)
     top_n_strings(strings, 5)
   end
 
@@ -29,7 +29,7 @@ class WordSource
   end
 
   def run
-    @words.each do |word|
+    @words.slice(@current_word_position, @words.length).each do |word|
       next_word
     end
   end

@@ -75,6 +75,13 @@ describe StringWordSource do
       word_source.next_word
       expect(word_source.top_5_consonants).to eql(["m", "p", "s", "l", "r"])
     end
+
+    it "should return the top 5 consonants that have seen regardless of the case" do
+      word_source = StringWordSource.new("Lorem,ipsum,ipsum")
+      word_source.next_word
+      expect(word_source.top_5_consonants).to eql(["l", "m", "r", nil, nil])
+      word_source.next_word
+    end
   end
 
   describe "#count" do

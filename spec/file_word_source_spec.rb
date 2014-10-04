@@ -58,11 +58,11 @@ describe FileWordSource do
       word_source = FileWordSource.new("./spec/support/Lorem_ipsum.txt")
       expect(word_source.top_5_consonants).to eql([nil, nil, nil, nil, nil])
       word_source.next_word
-      expect(word_source.top_5_consonants).to eql(["m", "r", nil, nil, nil])
+      expect(word_source.top_5_consonants).to eql(["l", "m", "r", nil, nil])
       word_source.next_word
-      expect(word_source.top_5_consonants).to eql(["m", "p", "r", "s", nil])
+      expect(word_source.top_5_consonants).to eql(["m", "l", "p", "r", "s"])
       word_source.next_word
-      expect(word_source.top_5_consonants).to eql(["m", "r", "d", "l", "p"])
+      expect(word_source.top_5_consonants).to eql(["l", "m", "r", "d", "p"])
     end
   end
 
@@ -87,7 +87,7 @@ describe FileWordSource do
       expect(word_source.top_5_words).to eql([nil, nil, nil, nil, nil])
       word_source.next_word
       expect(word_source.count).to eql(1)
-      expect(word_source.top_5_consonants).to eql(["m", "r", nil, nil, nil])
+      expect(word_source.top_5_consonants).to eql(["l", "m", "r", nil, nil])
       expect(word_source.top_5_words).to eql(["Lorem", nil, nil, nil, nil])
       word_source.run
       expect(word_source.count).to eql(4946)
